@@ -30,15 +30,21 @@ file:
 
 ```
 
-Name  | Description                                   | Required
-------|-----------------------------------------------|----------------------------
--r    | The location of the docker repository         | true
--i    | The name of the image that needs to be tested | true
--t    | The tag of the image (e.g latest)             | true
+You can configure the tool with parameters or environment variables.
+
+Param | Env Variable    | Description                                   | Required  | Default
+------|-----------------|-----------------------------------------------|-----------|-------------------------
+-i    | DOCKER_IMAGE    | The name of the image that needs to be tested | true      |
+-t    | DOCKER_TAG      | The tag of the image (e.g latest)             | true      |
+-r    | DOCKER_REGISTRY | The location of the docker repository         | false     | `registry.hub.docker.com` 
+-u    | DOCKER_USERNAME | Username of docker repository                 | false     | `gitlab-ci-token` 
+-p    | DOCKER_PASSWORD | Password of docker repository                 | false     | `$CI_BUILD_TOKEN`
 
 
 ```
-docker run -it --rm philipssoftware/goss:0.3.6 -v $(pwd):/app test.sh -r https://hub.docker.com -i philipssoftware/bats -t 1.1.0 
+$docker run -it -v (pwd):/app -v /var/run/docker.sock:/var/run/docker.sock:ro -e "DOCKER_IMAGE=philipssoftware/bats" -e "DOCKER_TAG=1.1.0" philipssoftware/goss:latest ./test.sh
+$docker run -it -v (pwd):/app -v /var/run/docker.sock:/var/run/docker.sock:ro -e "DOCKER_IMAGE=nginx" -e "DOCKER_TAG=1.11.10" philipssoftware/goss:latest ./test.sh
+
 ```
 
 

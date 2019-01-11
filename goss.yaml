@@ -1,8 +1,28 @@
 file:
-  /app/bats:
+  /var/log/nginx/access.log:
     exists: true
-  /app/TAGS:
+    linked-to: /dev/stdout
+    filetype: symlink
+  /var/log/nginx/error.log:
     exists: true
-  /app/REPO:
-    exists: true
-
+    linked-to: /dev/stderr
+    filetype: symlink
+package:
+  nginx:
+    installed: true
+    versions:
+    - 1.11.10-1~jessie
+port:
+  tcp:80:
+    listening: true
+    ip:
+    - 0.0.0.0
+process:
+  nginx:
+    running: true
+http:
+  http://localhost:
+    status: 200
+    timeout: 5000
+    body:
+    - Welcome to nginx! 

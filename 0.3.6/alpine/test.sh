@@ -14,10 +14,10 @@ while getopts ":r:i:t:u:p:h" opt; do
       export DOCKER_TAG=${OPTARG:-${DOCKER_TAG}}
       ;;
     u)
-      export GITLAB_USERNAME=${OPTARG:-${GITLAB_USERNAME}}
+      export DOCKER_USERNAME=${OPTARG:-${DOCKER_USERNAME}}
       ;;
     p)
-      export GITLAB_PASSWORD=${OPTARG:-${GITLAB_PASSWORD}}
+      export DOCKER_PASSWORD=${OPTARG:-${DOCKER__PASSWORD}}
       ;;
     h)
       usage
@@ -26,20 +26,22 @@ while getopts ":r:i:t:u:p:h" opt; do
 done
 shift $((OPTIND-1))
 
-if  [[ -z $GITLAB_USERNAME  ]] ; then
-    export GITLAB_USERNAME=gitlab-ci-token
+if  [[ -z $DOCKER_USERNAME  ]] ; then
+    export DOCKER_USERNAME=gitlab-ci-token
 fi
 
-if  [[ -z $GITLAB_PASSWORD  ]] ; then
-    export GITLAB_PASSWORD=$CI_BUILD_TOKEN
+if  [[ -z $DOCKER_PASSWORD  ]] ; then
+    export DOCKER_PASSWORD=$CI_BUILD_TOKEN
 fi
 
-printf "GITLAB USER:${GITLAB_USERNAME}";
+if  [[ -z $DOCKER_REGISTRY  ]] ; then
+    export DOCKER_REGISTRY=registry.hub.docker.com
+fi
 
 export GOSS_FILES_PATH=.
 
 # Docker login
-docker login -u ${GITLAB_USERNAME} -p ${GITLAB_PASSWORD} ${DOCKER_REGISTRY}
+# docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD} ${DOCKER_REGISTRY}
 
 # Run dgoss tests
 dgoss run -e DEBUG=true -e PROFILE=docker-container-test -e SERVER_PORT=8080 "${DOCKER_REGISTRY}/${DOCKER_IMAGE}:${DOCKER_TAG}"

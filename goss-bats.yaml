@@ -1,0 +1,8 @@
+file:
+  /app/bats:
+    exists: true
+  /app/TAGS:
+    exists: true
+  /app/REPO:
+    exists: true
+
