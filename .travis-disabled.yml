@@ -1,0 +1,13 @@
+language:
+  - bash
+
+services:
+  - docker
+
+sudo: true
+
+jobs:
+  include:
+    - stage: build
+      script: ./bin/docker_build_and_push.sh 0.3.6/alpine goss goss:0.3.6 goss:0.3.6.alpine
+
