@@ -8,7 +8,7 @@ This repo will contain docker images.
 Current versions available:
 ```
 .
-├── 0.4.0
+├── 0.3.6
 │   └── alpine
 │       └── Dockerfile
 ```
