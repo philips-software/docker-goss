@@ -6,6 +6,7 @@ while getopts ":r:i:t:u:p:h" opt; do
   case $opt in
     r)
       export DOCKER_REGISTRY=${OPTARG:-${DOCKER_REGISTRY}}
+      export DOCKER_REGISTRY=${DOCKER_REGISTRY}/}
       ;;
     i)
       export DOCKER_IMAGE=${OPTARG:-${DOCKER_IMAGE}}
@@ -34,14 +35,10 @@ if  [[ -z $DOCKER_PASSWORD  ]] ; then
     export DOCKER_PASSWORD=$CI_BUILD_TOKEN
 fi
 
-if  [[ -z $DOCKER_REGISTRY  ]] ; then
-    export DOCKER_REGISTRY=registry.hub.docker.com
-fi
-
-export GOSS_FILES_PATH=.
+export GOSS_FILES_PATH=${GOSS_FILES_PATH:-.}
 
 # Docker login
 # docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD} ${DOCKER_REGISTRY}
 
 # Run dgoss tests
-dgoss run -e DEBUG=true -e PROFILE=docker-container-test -e SERVER_PORT=8080 "${DOCKER_REGISTRY}/${DOCKER_IMAGE}:${DOCKER_TAG}"
+dgoss run -e DEBUG=true -e PROFILE=docker-container-test -e SERVER_PORT=8080 "${DOCKER_REGISTRY}${DOCKER_IMAGE}:${DOCKER_TAG}"

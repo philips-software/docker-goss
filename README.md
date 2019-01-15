@@ -42,8 +42,7 @@ Param | Env Variable    | Description                                   | Requir
 
 
 ```
-$docker run -it -v (pwd):/app -v /var/run/docker.sock:/var/run/docker.sock:ro -e "DOCKER_IMAGE=philipssoftware/bats" -e "DOCKER_TAG=1.1.0" philipssoftware/goss:latest ./test.sh
-$docker run -it -v (pwd):/app -v /var/run/docker.sock:/var/run/docker.sock:ro -e "DOCKER_IMAGE=nginx" -e "DOCKER_TAG=1.11.10" philipssoftware/goss:latest ./test.sh
+$docker run -it -v $(pwd):/goss -v /var/run/docker.sock:/var/run/docker.sock:ro -e "DOCKER_IMAGE=nginx" -e "DOCKER_TAG=1.11.10" -e "GOSS_FILES_PATH=/goss" philipssoftware/goss:latest ./test.sh
 
 ```
 
