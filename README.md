@@ -3,7 +3,7 @@
 
 # Docker images
 
-This repo will contain docker images.
+This repo will contain docker images with [GOSS](https://goss.rocks/).
 
 Current versions available:
 ```
