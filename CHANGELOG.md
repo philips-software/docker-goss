@@ -7,6 +7,7 @@ and this project uses the version of main tool as main version number .
 ## [Unreleased]
 
 ### Added
+- Add git 
 - [#2] - Use common builders - 1.0.1
 - Add goss 
 

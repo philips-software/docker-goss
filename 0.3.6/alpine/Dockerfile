@@ -12,6 +12,7 @@ RUN apk update \
  && apk --no-cache add \
       bash \
       curl \
+      git \
  && rm -rf /var/cache/apk/*
 
 RUN curl -L https://github.com/aelsabbahy/goss/releases/download/${GOSS_VER}/goss-linux-amd64 -o /usr/local/bin/goss && \
