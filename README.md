@@ -8,7 +8,7 @@ This repo will contain docker images with [GOSS](https://goss.rocks/).
 Current versions available:
 ```
 .
-├── 0.3.6
+├── 0.3.7
 │   └── alpine
 │       └── Dockerfile
 ```
@@ -59,7 +59,7 @@ This file has a url to the REPO with specific commit-sha of the build.
 Example: 
 
 ```
-$ docker run -it --rm philipssoftware/goss:0.3.6 cat REPO
+$ docker run -it --rm philipssoftware/goss:0.3.7 cat REPO
 https://github.com/philips-software/docker-goss/tree/36ea34634d022e26d87d3e6b3e0f0d2841327e00
 ```
 
@@ -68,8 +68,8 @@ https://github.com/philips-software/docker-goss/tree/36ea34634d022e26d87d3e6b3e0
 This contains all the similar tags at the point of creation. 
 
 ```
-$ docker run -it --rm philipssoftware/goss:0.3.6 cat TAGS
-goss goss:0.3.6 goss:0.3.6-alpine
+$ docker run -it --rm philipssoftware/goss:0.3.7 cat TAGS
+goss goss:0.3 goss:0.3.7 goss:0.3.7-alpine
 ```
 
 You can use this to pin down a version of the container from an existing development build for production. When using `goss:0.3.6` for development. This ensures that you've got all security updates in your build. If you want to pin the version of your image down for production, you can use this file inside of the container to look for the most specific tag, the last one.
@@ -77,7 +77,7 @@ You can use this to pin down a version of the container from an existing develop
 ## Simple Tags
 
 ### goss
-- `goss`, `goss:0.3.6`, `goss:0.3.6-alpine` [0.3.6/alpine/Dockerfile](0.3.6/alpine/Dockerfile)
+- `goss`, `goss:0.3`, `goss:0.3.7`, `goss:0.3.7-alpine` [0.3.7/alpine/Dockerfile](0.3.7/alpine/Dockerfile)
 
 ## Why
 
