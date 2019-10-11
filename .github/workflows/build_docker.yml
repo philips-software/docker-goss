@@ -1,0 +1,23 @@
+on: [push]
+
+name: Build
+
+jobs:
+  build:
+    name: Build 
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@master
+      with:
+        submodules: true
+
+    - name: Build Docker Images
+      run: |
+        ./ci/bin/docker_build_and_push.sh 0.3.6/alpine goss goss:0.3.6 goss:0.3.6.alpine
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: '${{ secrets.DOCKER_PASSWORD }}'
+        DOCKER_ORGANIZATION: ${{ secrets.DOCKER_ORGANIZATION }}
+        GITHUB_ORGANIZATION: ${{ secrets.GITHUB_ORGANIZATION }}
