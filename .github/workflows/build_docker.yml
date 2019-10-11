@@ -15,7 +15,7 @@ jobs:
 
     - name: Build Docker Images
       run: |
-        ./ci/bin/docker_build_and_push.sh 0.3.6/alpine goss goss:0.3.6 goss:0.3.6.alpine
+        ./ci/bin/docker_build_and_push.sh 0.3.7/alpine goss goss:0.3 goss:0.3.7 goss:0.3.7.alpine
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: '${{ secrets.DOCKER_PASSWORD }}'

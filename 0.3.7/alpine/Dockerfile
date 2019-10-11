@@ -4,7 +4,7 @@ LABEL MAINTAINER Forest Keepers <Jeroen.knoops@philips.com>
 
 USER root
 
-ENV GOSS_VER=v0.3.6 \
+ENV GOSS_VER=v0.3.7 \
     GOSS_FILES_STRATEGY=cp \
     GOSS_FILES_PATH=/app
 
