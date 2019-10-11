@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/philips-software/goss.svg?branch=master)](https://travis-ci.com/philips-software/goss)
+[![Build Status](https://github.com/philips-software/goss/workflows/build/badge.svg)](https://github.com/philips-software/goss/actions/)
 [![Slack](https://philips-software-slackin.now.sh/badge.svg)](https://philips-software-slackin.now.sh)
 
 # Docker images
