@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/philips-software/goss/workflows/build/badge.svg)](https://github.com/philips-software/goss/actions/)
+[![Build Status](https://github.com/philips-software/docker-goss/workflows/build/badge.svg)](https://github.com/philips-software/docker-goss/actions/)
 [![Slack](https://philips-software-slackin.now.sh/badge.svg)](https://philips-software-slackin.now.sh)
 
 # Docker images
@@ -60,7 +60,7 @@ Example:
 
 ```
 $ docker run -it --rm philipssoftware/goss:0.3.6 cat REPO
-https://github.com/philips-software/goss/tree/36ea34634d022e26d87d3e6b3e0f0d2841327e00
+https://github.com/philips-software/docker-goss/tree/36ea34634d022e26d87d3e6b3e0f0d2841327e00
 ```
 
 ### TAGS
