@@ -9,15 +9,16 @@ jobs:
 
     steps:
 
-    - uses: actions/checkout@master
-      with:
-        submodules: true
+    - uses: actions/checkout@v2
 
     - name: Build Docker Images
-      run: |
-        ./ci/bin/docker_build_and_push.sh 0.3.7/alpine goss goss:0.3 goss:0.3.7 goss:0.3.7.alpine
+      uses: philips-software/docker-ci-scripts@v2.0.1
+      with:
+        dockerfile: 0/alpine
+        image-name: goss
+        tags: latest 0.3 0.3.7 0.3.7.alpine
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: '${{ secrets.DOCKER_PASSWORD }}'
-        DOCKER_ORGANIZATION: ${{ secrets.DOCKER_ORGANIZATION }}
-        GITHUB_ORGANIZATION: ${{ secrets.GITHUB_ORGANIZATION }}
+        DOCKER_ORGANIZATION: philipssoftware
+        GITHUB_ORGANIZATION: philips-software
