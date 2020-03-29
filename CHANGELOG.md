@@ -6,6 +6,9 @@ and this project uses the version of main tool as main version number .
 
 ## [Unreleased]
 
+### Changed
+- Uses new docker-ci-scripts Github Action
+
 ### Added
 - [#10] - Updates to GOSS 0.3.7 
 - [#6] - Migrate to Github Actions 
