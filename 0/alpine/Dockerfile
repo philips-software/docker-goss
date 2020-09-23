@@ -20,7 +20,7 @@ RUN curl -L https://github.com/aelsabbahy/goss/releases/download/${GOSS_VER}/gos
     curl -L https://raw.githubusercontent.com/aelsabbahy/goss/${GOSS_VER}/extras/dgoss/dgoss -o /usr/local/bin/dgoss && \
     chmod +rx /usr/local/bin/dgoss;
 
-COPY test.sh /test.sh
+COPY /0/alpine/test.sh /test.sh
 RUN chmod +x /test.sh
 
 ADD REPO .
