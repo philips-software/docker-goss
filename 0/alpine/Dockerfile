@@ -1,5 +1,5 @@
 
-FROM docker:20.10.1
+FROM docker:20.10.2
 LABEL MAINTAINER Forest Keepers <Jeroen.knoops@philips.com>
 
 USER root
