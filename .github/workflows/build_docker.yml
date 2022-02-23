@@ -2,13 +2,21 @@ on: [push]
 
 name: build
 
+env:
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_PASSWORD: '${{ secrets.DOCKER_PASSWORD }}'
+  DOCKER_ORGANIZATION: philipssoftware
+  GITHUB_ORGANIZATION: philips-software
+  COSIGN_PRIVATE_KEY: '${{ secrets.COSIGN_PRIVATE_KEY }}'
+  COSIGN_PASSWORD: '${{ secrets.COSIGN_PASSWORD }}'
+  COSIGN_PUBLIC_KEY: '${{ secrets.COSIGN_PUBLIC_KEY }}'
+
 jobs:
   build:
     name: Build 
     runs-on: ubuntu-latest
 
     steps:
-
     - uses: actions/checkout@v2.4.0
 
     - name: Build Docker Images
@@ -17,8 +25,6 @@ jobs:
         dockerfile: 0/alpine
         image-name: goss
         tags: latest 0.3 0.3.7 0.3.7.alpine
-      env:
-        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        DOCKER_PASSWORD: '${{ secrets.DOCKER_PASSWORD }}'
-        DOCKER_ORGANIZATION: philipssoftware
-        GITHUB_ORGANIZATION: philips-software
+        sign: true
+        slsa-provenance: true
+        sbom: true
