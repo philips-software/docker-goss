@@ -1,5 +1,6 @@
 [![Build Status](https://github.com/philips-software/docker-goss/workflows/build/badge.svg)](https://github.com/philips-software/docker-goss/actions/)
-[![Slack](https://philips-software-slackin.now.sh/badge.svg)](https://philips-software-slackin.now.sh)
+
+> ⚠️ We're no longer maintaining this image.
 
 # Docker images
 
